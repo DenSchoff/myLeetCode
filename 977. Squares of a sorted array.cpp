@@ -3,33 +3,21 @@ public:
     vector<int> sortedSquares(vector<int>& nums) {
         vector<int> myVector;
         int i = 0;
-        int j = 0;
-        int smallestI = 0;
-        while (i < nums.size() - 1)
+        int j = nums.size() - 1;
+        while (i <= j)
         {
-            if (nums[i]*nums[i] < nums[i+1]*nums[i+1])
+            if (nums[i] * nums[i] > nums[j] * nums[j])
             {
-                smallestI = i;
-                break;
-            }
-            i++;
-        }
-        i = 1;
-        j = 1;
-        myVector.push_back(nums[smallestI] * nums[smallestI]);
-        while ((i+j < nums.size() + 1))
-        {
-            if ( nums[smallestI + i] * nums[smallestI + i] < nums[smallestI - j] * nums[smallestI - j])
-            {
-                myVector.push_back( nums[smallestI + i] * nums[smallestI + i] );
+                myVector.push_back(nums[i] * nums[i]);
                 i++;
             }
-            else
+            else 
             {
-                myVector.push_back( nums[smallestI - j] * nums[smallestI - j] );
-                j++;
+                myVector.push_back(nums[j] * nums[j]);
+                j--;
             }
         }
+        reverse(myVector.begin(), myVector.end());
         return myVector;
     }
 };
