@@ -1,3 +1,5 @@
+// This is my first solution and it stinks 
+// I will make it better someday
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
